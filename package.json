@@ -1,0 +1,17 @@
+{
+  "name": "lecoinmanga-api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:Yama022/LeCoinManga-API.git",
+  "author": "Remi Jacquemin <79313646+Yama022@users.noreply.github.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.2",
+    "express": "^4.18.1",
+    "sequelize": "^6.23.0"
+  }
+}
