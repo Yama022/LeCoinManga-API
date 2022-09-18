@@ -80,6 +80,13 @@ CREATE TABLE "manga" (
     "updated_at" TIMESTAMPTZ
 );
 
+CREATE TABLE "condition" (
+    "id" INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    "label" TEXT NOT NULL UNIQUE,
+    "created_at" TIMESTAMPTZ NOT NULL DEFAULT now(),
+    "updated_at" TIMESTAMPTZ
+);
+
 CREATE TABLE "offer" (
     "id" INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     "title" TEXT NOT NULL,
@@ -89,14 +96,7 @@ CREATE TABLE "offer" (
     "is_sold" BOOLEAN NOT NULL DEFAULT FALSE,
     "is_available" BOOLEAN NOT NULL DEFAULT TRUE,
     "manga_id" INT NOT NULL REFERENCES "manga" ("id"),
-    "created_at" TIMESTAMPTZ NOT NULL DEFAULT now(),
-    "updated_at" TIMESTAMPTZ
-);
-
-CREATE TABLE "condition" (
-    "id" INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-    "label" TEXT NOT NULL UNIQUE,
-    "offer_id" INT NOT NULL REFERENCES "offer" ("id"),
+    "condition_id" INT NOT NULL REFERENCES "condition" ("id"),
     "created_at" TIMESTAMPTZ NOT NULL DEFAULT now(),
     "updated_at" TIMESTAMPTZ
 );
@@ -119,6 +119,7 @@ CREATE TABLE "offer_has_offer_pictures" (
 CREATE TABLE "type" (
     "id" INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     "label" TEXT NOT NULL UNIQUE,
+    "is_nsfw" BOOLEAN NOT NULL DEFAULT FALSE,
     "created_at" TIMESTAMPTZ NOT NULL DEFAULT now(),
     "updated_at" TIMESTAMPTZ
 );

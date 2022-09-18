@@ -1,14 +1,38 @@
 require('dotenv').config();
 const express = require('express');
+const cors = require('cors');
+const {
+  log: {
+    info,
+    error
+  },
+} = require('./app/utils');
 
+const PORT = process.env.PORT || 5000;
 const app = express();
 
-const port = process.env.PORT || 5000;
+// Cors Configuration
+app.use(cors({
+  origin: '*',
+}));
 
+
+// Redirect to BASE_URL
 app.get("/", (_, res) => {
-  res.send("Hello World");
+  res.redirect("/api/v1");
 })
 
-app.listen(port, () => {
-  console.log(`Server started on http://localhost:${port}`);
-});
+// TODO: Load Routes
+// app.use('/api/v1', routes);
+// app.use(errorRouter);
+
+// Launch the server
+try {
+  app.listen(PORT, () => {
+    if (process.env.NO_LOGGING !== 'true') {
+      info(`LeCoinmanga API listening on http://localhost:${PORT}`);
+    }
+  });
+} catch (err) {
+  error(`LeCoinmanga API failed to start: ${err}`);
+}

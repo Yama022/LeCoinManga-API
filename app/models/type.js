@@ -4,11 +4,16 @@ const { sequelize } = require('../databases');
 class Type extends Model { }
 
 Type.init({
-    label: {
+  label: {
         type: DataTypes.TEXT,
         allowNull: false,
         unique: true
-    }
+  },
+  is_nsfw: {
+    type: DataTypes.BOOLEAN,
+    allowNull: false,
+    defaultValue: false
+  }
 },
 {
   sequelize,

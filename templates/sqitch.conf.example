@@ -1,0 +1,7 @@
+[core]
+    engine = pg
+    plan_file = migrations/sqitch.plan
+    top_dir = migrations
+[engine "pg"]
+    client = psql
+    target = 
