@@ -25,7 +25,6 @@ User.init({
     },
     phone: {
         type: DataTypes.NUMBER,
-        allowNull: false,
         unique: true,
         validate: {
             isNumeric: true,

@@ -1,6 +1,8 @@
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
+const globalRouter = require('./app/routers');
+const errorRouter = require('./app/routers/error');
 const {
   log: {
     info,
@@ -10,6 +12,7 @@ const {
 
 const PORT = process.env.PORT || 5000;
 const app = express();
+app.use(express.json());
 
 // Cors Configuration
 app.use(cors({
@@ -22,14 +25,13 @@ app.get("/", (_, res) => {
   res.redirect("/api/v1");
 })
 
-// TODO: Load Routes
-// app.use('/api/v1', routes);
-// app.use(errorRouter);
+app.use('/api/v1', globalRouter);
+app.use(errorRouter);
 
 // Launch the server
 try {
   app.listen(PORT, () => {
-    if (process.env.NO_LOGGING !== 'true') {
+    if (process.env.LOGGING === 'true') {
       info(`LeCoinmanga API listening on http://localhost:${PORT}`);
     }
   });

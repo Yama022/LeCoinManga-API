@@ -14,7 +14,7 @@ const uri =
 try {
   const sequelize = new Sequelize(uri, config[env]);
 
-  if (process.env.NO_LOGGING !== 'true') {
+  if (process.env.LOGGING === 'true') {
     info(`Environment: ${env}`);
     success(`Connected to PostgresQL`);
     info(`Database name: ${uri.split('/')[uri.split('/').length - 1]}`);

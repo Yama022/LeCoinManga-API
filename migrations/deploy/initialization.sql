@@ -15,7 +15,7 @@ CREATE TABLE "user" (
     "lastname" TEXT,
     "username" TEXT NOT NULL UNIQUE,
     "email" TEXT NOT NULL UNIQUE,
-    "phone" INT NOT NULL UNIQUE,
+    "phone" INT UNIQUE,
     "password" TEXT NOT NULL,
     "avatar_url" TEXT,
     "bio" TEXT,
