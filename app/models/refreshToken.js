@@ -4,7 +4,7 @@ const { sequelize } = require('../databases');
 class RefreshToken extends Model { }
 
 RefreshToken.init({
-    refresh: {
+    token: {
         type: DataTypes.TEXT,
         allowNull: false,
         unique: true
