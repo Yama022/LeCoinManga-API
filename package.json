@@ -12,6 +12,7 @@
   "dependencies": {
     "dotenv": "^16.0.2",
     "express": "^4.18.1",
+    "log-beautify": "^1.2.0",
     "sequelize": "^6.23.0"
   }
 }

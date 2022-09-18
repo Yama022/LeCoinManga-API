@@ -45,6 +45,7 @@ CREATE TABLE "refresh_token" (
 CREATE TABLE "origin_country" (
     "id" INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     "label" TEXT NOT NULL UNIQUE,
+    "image_url" TEXT NOT NULL UNIQUE,
     "created_at" TIMESTAMPTZ NOT NULL DEFAULT now(),
     "updated_at" TIMESTAMPTZ
 );
