@@ -17,10 +17,10 @@ module.exports = {
       // If the user doesn't want nsfw, we filter the types
       if (!withNsfw) {
         const filteredTypes = types.filter((type) => !type.is_nsfw);
-        return res.status(200).json(filteredTypes.length);
+        return res.status(200).json(filteredTypes);
       }
 
-      res.status(200).json(types.length);
+      res.status(200).json(types);
     } catch (e) {
       res.status(500).json(INTERNAL);
     }
