@@ -182,7 +182,7 @@ module.exports = {
         {
             label: 'sports',
             is_nsfw: false,
-            name: 'Smut'
+            name: 'Sports'
         },
         {
             label: 'supernatural',
