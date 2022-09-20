@@ -9,6 +9,11 @@ Type.init({
         allowNull: false,
         unique: true
   },
+  name: {
+    type: DataTypes.TEXT,
+    allowNull: false,
+    unique: true
+  },
   is_nsfw: {
     type: DataTypes.BOOLEAN,
     allowNull: false,

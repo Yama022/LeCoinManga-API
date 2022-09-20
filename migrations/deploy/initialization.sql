@@ -119,6 +119,7 @@ CREATE TABLE "offer_has_offer_pictures" (
 CREATE TABLE "type" (
     "id" INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     "label" TEXT NOT NULL UNIQUE,
+    "name" TEXT NOT NULL UNIQUE,
     "is_nsfw" BOOLEAN NOT NULL DEFAULT FALSE,
     "created_at" TIMESTAMPTZ NOT NULL DEFAULT now(),
     "updated_at" TIMESTAMPTZ

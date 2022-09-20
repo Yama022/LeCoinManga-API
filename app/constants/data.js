@@ -19,42 +19,195 @@ module.exports = {
         { label: 'China', image_url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Flag_of_the_People%27s_Republic_of_China.svg/2000px-Flag_of_the_People%27s_Republic_of_China.svg.png' },
     ],
     types: [
-        { label: "action", is_nsfw: false },
-        { label: "adventure", is_nsfw: false },
-        { label: "comedy", is_nsfw: false },
-        { label: "cooking", is_nsfw: false },
-        { label: "doujinshi", is_nsfw: false },
-        { label: "drama", is_nsfw: false },
-        { label: "erotica", is_nsfw: true },
-        { label: "fantasy", is_nsfw: false },
-        { label: "gender_bender", is_nsfw: false },
-        { label: "harem", is_nsfw: true },
-        { label: "historical", is_nsfw: false },
-        { label: "isekai", is_nsfw: false },
-        { label: "josei", is_nsfw: false },
-        { label: "manhua", is_nsfw: false },
-        { label: "manhwa", is_nsfw: false },
-        { label: "martial_arts", is_nsfw: false },
-        { label: "mature", is_nsfw: true },
-        { label: "mecha", is_nsfw: false },
-        { label: "medical", is_nsfw: false },
-        { label: "mistery", is_nsfw: false },
-        { label: "one_shot", is_nsfw: false },
-        { label: "pornographic", is_nsfw: true },
-        { label: "psychological", is_nsfw: false },
-        { label: "romance", is_nsfw: false },
-        { label: "school_life", is_nsfw: false },
-        { label: "sci_fi", is_nsfw: false },
-        { label: "seinen", is_nsfw: false },
-        { label: "shoujo", is_nsfw: false },
-        { label: "shoujo_ai", is_nsfw: false },
-        { label: "slice_of_life", is_nsfw: false },
-        { label: "smut", is_nsfw: false },
-        { label: "sports", is_nsfw: false },
-        { label: "supernatural", is_nsfw: false },
-        { label: "tragedy", is_nsfw: false },
-        { label: "webtoons", is_nsfw: false },
-        { label: "yaoi", is_nsfw: true },
-        { label: "yuri", is_nsfw: true },
+        {
+            label: 'action',
+            is_nsfw: false,
+            name: 'Action'
+        },
+        {
+            label: 'adventure',
+            is_nsfw: false,
+            name: 'Aventure'
+        },
+        {
+            label: 'comedy',
+            is_nsfw: false,
+            name: 'Comédie'
+        },
+        {
+            label: 'cooking',
+            is_nsfw: false,
+            name: 'Cuisine'
+        },
+        {
+            label: 'doujinshi',
+            is_nsfw: false,
+            name: 'Doujinshi'
+        },
+        {
+            label: 'drama',
+            is_nsfw: false,
+            name: 'Drame'
+        },
+        {
+            label: 'erotica',
+            is_nsfw: true,
+            name: 'Erotique'
+        },
+        {
+            label: 'fantasy',
+            is_nsfw: false,
+            name: 'Fantastique'
+        },
+        {
+            label: 'gender_bender',
+            is_nsfw: true,
+            name: 'Transexuel'
+        },
+        {
+            label: 'harem',
+            is_nsfw: true,
+            name: 'Harem'
+        },
+        {
+            label: 'historical',
+            is_nsfw: false,
+            name: 'Historique'
+        },
+        {
+            label: 'isekai',
+            is_nsfw: false,
+            name: 'Isekai'
+        },
+        {
+            label: 'josei',
+            is_nsfw: false,
+            name: 'Josei'
+        },
+        {
+            label: 'manhua',
+            is_nsfw: false,
+            name: 'Manhua'
+        },
+        {
+            label: 'manhwa',
+            is_nsfw: false,
+            name: 'Manhwa'
+        },
+        {
+            label: 'martial_arts',
+            is_nsfw: false,
+            name: 'Arts Martiaux'
+        },
+        {
+            label: 'mature',
+            is_nsfw: true,
+            name: 'Mature'
+        },
+        {
+            label: 'mecha',
+            is_nsfw: false,
+            name: 'Mecha'
+        },
+        {
+            label: 'medical',
+            is_nsfw: false,
+            name: 'Médical'
+        },
+        {
+            label: 'mistery',
+            is_nsfw: false,
+            name: 'Mystère'
+        },
+        {
+            label: 'one_shot',
+            is_nsfw: false,
+            name: 'One Shot'
+        },
+        {
+            label: 'pornographic',
+            is_nsfw: true,
+            name: 'Pornographie'
+        },
+        {
+            label: 'psychological',
+            is_nsfw: false,
+            name: 'Psychologie'
+        },
+        {
+            label: 'romance',
+            is_nsfw: false,
+            name: 'Romance'
+        },
+        {
+            label: 'school_life',
+            is_nsfw: false,
+            name: 'Vie Scolaire'
+        },
+        {
+            label: 'sci_fi',
+            is_nsfw: false,
+            name: 'Science Fiction'
+        },
+        {
+            label: 'seinen',
+            is_nsfw: false,
+            name: 'Seinen'
+        },
+        {
+            label: 'shoujo',
+            is_nsfw: false,
+            name: 'Shojo'
+        },
+        {
+            label: 'shoujo_ai',
+            is_nsfw: false,
+            name: 'Shojo AI'
+        },
+        {
+            label: 'shonen',
+            is_nsfw: false,
+            name: 'Shonen'
+        },
+        {
+            label: 'slice_of_life',
+            is_nsfw: false,
+            name: 'Tranche de Vie'
+        },
+        {
+            label: 'smut',
+            is_nsfw: true,
+            name: 'Smut'
+        },
+        {
+            label: 'sports',
+            is_nsfw: false,
+            name: 'Smut'
+        },
+        {
+            label: 'supernatural',
+            is_nsfw: false,
+            name: 'Surnaturel'
+        },
+        {
+            label: 'tragedy',
+            is_nsfw: false,
+            name: 'Tragédie'
+        },
+        {
+            label: 'webtoons',
+            is_nsfw: false,
+            name: 'Webtoons'
+        },
+        {
+            label: 'yaoi',
+            is_nsfw: true,
+            name: 'Yaoi'
+        },
+        {
+            label: 'yuri',
+            is_nsfw: true,
+            name: 'Yuri'
+        }
     ]
 }

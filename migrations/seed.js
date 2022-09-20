@@ -121,6 +121,7 @@ class Seed {
             try {
                 await Type.create({
                     label: type.label,
+                    name: type.name,
                     is_nsfw: type.is_nsfw
                 });
 
