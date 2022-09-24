@@ -14,7 +14,7 @@ DROP TABLE "role",
   "condition",
   "offer_picture",
   "offer_has_offer_pictures",
-  "type",
-  "manga_has_types";
+  "genre",
+  "manga_has_genres";
 
 COMMIT;

@@ -52,9 +52,8 @@ CREATE TABLE "origin_country" (
 
 CREATE TABLE "author" (
     "id" INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-    "name" TEXT NOT NULL UNIQUE,
-    "japanese_name" TEXT UNIQUE,
-    "image_url" TEXT,
+    "mal_id" INT NOT NULL UNIQUE,
+    "name" TEXT NOT NULL,
     "created_at" TIMESTAMPTZ NOT NULL DEFAULT now(),
     "updated_at" TIMESTAMPTZ
 );
@@ -68,11 +67,17 @@ CREATE TABLE "status" (
 
 CREATE TABLE "manga" (
     "id" INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    "mal_id" INT NOT NULL UNIQUE,
     "name" TEXT NOT NULL UNIQUE,
     "japanese_name" TEXT UNIQUE,
-    "description" TEXT,
+    "synopsis" TEXT,
+    "background" TEXT,
     "image_url" TEXT NOT NULL,
     "release_date" DATE NOT NULL,
+    "finish_date" DATE,
+    "volumes_number" INT,
+    "chapters_number" INT,
+    "mal_rank" INT,
     "origin_country_id" INT NOT NULL REFERENCES "origin_country" ("id"),
     "status_id" INT NOT NULL REFERENCES "status" ("id"),
     "author_id" INT NOT NULL REFERENCES "author" ("id"),
@@ -95,7 +100,7 @@ CREATE TABLE "offer" (
     "chapter_no" INT NOT NULL,
     "is_sold" BOOLEAN NOT NULL DEFAULT FALSE,
     "is_available" BOOLEAN NOT NULL DEFAULT TRUE,
-    "manga_id" INT NOT NULL REFERENCES "manga" ("id"),
+    "manga_id" INT REFERENCES "manga" ("id"),
     "condition_id" INT NOT NULL REFERENCES "condition" ("id"),
     "created_at" TIMESTAMPTZ NOT NULL DEFAULT now(),
     "updated_at" TIMESTAMPTZ
@@ -116,8 +121,9 @@ CREATE TABLE "offer_has_offer_pictures" (
     "updated_at" TIMESTAMPTZ
 );
 
-CREATE TABLE "type" (
+CREATE TABLE "genre" (
     "id" INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    "mal_id" INT NOT NULL UNIQUE,
     "label" TEXT NOT NULL UNIQUE,
     "name" TEXT NOT NULL UNIQUE,
     "is_nsfw" BOOLEAN NOT NULL DEFAULT FALSE,
@@ -125,10 +131,10 @@ CREATE TABLE "type" (
     "updated_at" TIMESTAMPTZ
 );
 
-CREATE TABLE "manga_has_types" (
+CREATE TABLE "manga_has_genres" (
     "id" INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     "manga_id" INT NOT NULL REFERENCES "manga" ("id"),
-    "type_id" INT NOT NULL REFERENCES "type" ("id"),
+    "genre_id" INT NOT NULL REFERENCES "genre" ("id"),
     "created_at" TIMESTAMPTZ NOT NULL DEFAULT now(),
     "updated_at" TIMESTAMPTZ
 );

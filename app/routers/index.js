@@ -1,20 +1,20 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
 
 // Another routers
-const mainRouter = require('./main');
-const authRouter = require('./auth');
-const typeRouter = require('./type');
-const errorRouter = require('./error');
+const mainRouter = require("./main");
+const authRouter = require("./auth");
+const genreRouter = require("./genre");
+const errorRouter = require("./error");
 
 // Base routes
-router.use('/', mainRouter);
+router.use("/", mainRouter);
 
 // Authentication routes
-router.use('/auth', authRouter);
+router.use("/auth", authRouter);
 
-// Type routes
-router.use('/type', typeRouter);
+// Genre routes
+router.use("/genre", genreRouter);
 
 // Error Handling
 router.use(errorRouter);

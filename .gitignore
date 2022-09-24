@@ -1,5 +1,8 @@
 #Personnal
 sqitch.conf
+authors.json
+manga.json
+genres.json
 
 # Logs
 logs

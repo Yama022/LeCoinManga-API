@@ -1,7 +1,7 @@
 const authController = require('./auth');
-const typeController = require('./type');
+const genreController = require('./genre');
 
 module.exports = {
     authController,
-    typeController,
+    genreController,
 };

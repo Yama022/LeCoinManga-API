@@ -8,7 +8,7 @@ const RefreshToken = require('./refreshToken');
 const ResetPasswordToken = require('./resetPasswordToken');
 const Role = require('./role');
 const Status = require('./status');
-const Type = require('./type');
+const Genre = require('./genre');
 const User = require('./user');
 
 /** *****  USER ROLE ***** */
@@ -134,15 +134,15 @@ Offer.belongsTo(Condition, {
 /** ********************** */
 
 /** ***** CONDITION OFFER ***** */
-Type.hasMany(Offer, {
+Genre.hasMany(Offer, {
   as: 'offers',
-  foreignKey: 'type_id',
+  foreignKey: 'genre_id',
 });
 
-Offer.belongsTo(Type, {
-  as: 'type',
+Offer.belongsTo(Genre, {
+  as: 'Genre',
   foreignKey: {
-    name: 'type_id',
+    name: 'genre_id',
     allowNull: false,
   },
 });
@@ -164,18 +164,18 @@ OfferPicture.belongsToMany(Offer, {
 });
 /** ********************** */
 
-/** ***** MANGA TYPE N/N ***** */
-Manga.belongsToMany(Type, {
-  as: 'types',
-  through: 'manga_has_types',
+/** ***** MANGA Genre N/N ***** */
+Manga.belongsToMany(Genre, {
+  as: 'Genres',
+  through: 'manga_has_genres',
   foreignKey: 'manga_id',
-  otherKey: 'type_id',
+  otherKey: 'genre_id',
 });
 
-Type.belongsToMany(Manga, {
+Genre.belongsToMany(Manga, {
   as: 'mangas',
-  through: 'manga_has_types',
-  foreignKey: 'type_id',
+  through: 'manga_has_genres',
+  foreignKey: 'genre_id',
   otherKey: 'manga_id',
 });
 /** ********************** */
@@ -191,6 +191,6 @@ module.exports = {
   ResetPasswordToken,
   Role,
   Status,
-  Type,
+  Genre,
   User,
 }

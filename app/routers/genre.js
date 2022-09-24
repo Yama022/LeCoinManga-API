@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
 
-const { typeController } = require('../controllers');
+const { genreController } = require('../controllers');
 
-router.get('/', typeController.getAll);
+router.get('/', genreController.getAll);
 
 module.exports = router;
